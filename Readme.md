@@ -12,3 +12,7 @@ then we have created the account and database in mongo db atlas database
 we have to import the dotenv and configure it if we imported insted of require for accessing the dotenv variables in index.js file.
 
 we have connected to the database and create the server in express.
+
+ "bcrypt" : is used for the encrypting the password
+
+ thunderclien and postman: these are used for api testing 
