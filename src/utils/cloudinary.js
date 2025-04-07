@@ -24,3 +24,5 @@ const uploadOnCloudinary = async ( localFilePath)=>{
         fs.unlinkSync(localFilePath); // delete the file from local storage
     }
 }
+
+export { uploadOnCloudinary };

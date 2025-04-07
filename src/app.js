@@ -29,14 +29,12 @@ app.use(express.urlencoded({
 
 
 app.use(express.static('public')) // Serve static files from the public directory
-
 app.use(cookieParser()) // Parse cookies from the request headers
 
 
-//! Import routes
+//! -----------Import routes-----------
 import userRouter from './routes/user.routes.js';
 
-// if the user enters this : //http:localhost:5000/api/v1/users/register
 app.use("/api/v1/users", userRouter); 
 
 
@@ -50,3 +48,18 @@ export default app;
 
 // middleware : is used in the middle of the request-response cycle to check if user which request is authenticated or not, logged in or not, admin or not, etc.
  
+
+
+/* 
+    if the user enters this : //http:localhost:5000/api/v1/users/register
+   it will go to the user.routes.js file and run this route:    router.route("/register").post(registerUser)
+   and then go to the user.controller.js file to run the registerUser function 
+*/
+
+
+//? app.use("/api/v1/users", userRouter); 
+// this means that all the routes in the userRouter will be prefixed with /api/v1/users, it works as parent route
+// so if you have a route in userRouter like /login, it will be accessible at /api/v1/users/login
+// if you have a route in userRouter like /profile, it will be accessible at /api/v1/users/profile
+// so the userRouter is the child route and the /api/v1/users is the parent route
+// this is a good practice to keep the routes organized and easy to manage

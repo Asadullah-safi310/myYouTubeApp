@@ -14,5 +14,5 @@ class ApiResponse {
     //     return new ApiResponse(statusCode, message, null, false);
     // }
 }
-
+ export { ApiResponse };
 // module.exports = ApiResponse;
