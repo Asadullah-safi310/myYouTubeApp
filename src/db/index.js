@@ -15,6 +15,10 @@ const connectDB = async () => {
 export default connectDB;
 
 
+//An async function automatically returns a promise.
+//? Does await Need a Return?
+// If you want to return the connectionInstance to use elsewhere, you should return it explicitly.
+
 
 
 

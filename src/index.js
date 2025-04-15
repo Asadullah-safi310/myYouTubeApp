@@ -3,9 +3,9 @@ import connectDB from "./db/index.js";
 import dotenv from "dotenv";
 import app from "./app.js";
 
-// this is for the configuration for the .env file, this allow us to access the environment variables from the .env file
+// this is the configuration for the .env file, this allow us to access the environment variables from the .env file
 dotenv.config({
-    path: "./env"
+    path: "./.env"
 });
 
 const port = process.env.PORT || 8000;
@@ -32,3 +32,6 @@ For example, if the port is already in use or there’s an unexpected crash in E
 
 
 // .then() and .catch() will never run if process.exit(1); is executed inside connectDB() in db/index.js file.
+
+//?Important Notes:
+//? when you import a module in JavaScript (like import app from "./app.js";), the entire file (app.js) is executed immediately, just like if you had written its code directly inside index.js.

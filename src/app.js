@@ -11,7 +11,7 @@ app.use(cors({
     credentials: true,     // Cookies and authentication headers will be sent with requests.
 }))
 
-
+console.log("inside app.js file");
 
 //Parses incoming JSON requests comming from the client or frondend team and After parsing, the JSON data is accessible in req.body. Without this middleware, req.body will be undefined because the server doesn’t know how to parse JSON
 app.use(express.json({
