@@ -42,14 +42,4 @@ return async (req, res, next)=> {
 
 
 
-
-
-
-
-
-
-
-
-
-
 // Since asyncHandler(fn) returns a new function that also expects (req, res, next), Express passes fn function's parmeters to the new returnning function automatically.

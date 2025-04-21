@@ -8,7 +8,7 @@ const app = express();
 // CORS Specifies which origins (domains) are allowed to access the server
 app.use(cors({
     origin: process.env.CORS_ORIGIN,    //The origin: process.env.CORS_ORIGIN part ensures that only requests coming from this URL can access your API.
-    credentials: true,     // Cookies and authentication headers will be sent with requests.
+    credentials: true,     // Cookies and authentication headers will be sent with every requests from the frontend, the backend can find it like this (req.cookies.accessToken).
 }))
 
 console.log("inside app.js file");
@@ -39,9 +39,6 @@ app.use("/api/v1/users", userRouter);
 
 
 export default app; 
-
-
-
 
 
 

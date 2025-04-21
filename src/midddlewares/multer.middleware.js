@@ -33,7 +33,7 @@ Allows setting limits on file size, file types, and destinations.
 
 
 //? Inside multer({...}):
-// These apply to overall file handling:
+// These apply to overall file handling: we can not change the keys of the object inside the multer().
 // storage: Defines the storage engine (diskStorage() or memoryStorage()).
 // fileFilter: Filters files based on type.
 // limits: Sets restrictions like file size, number of files, etc.
