@@ -33,7 +33,7 @@ app.use(cookieParser()) // Parse cookies from the request headers
 
 
 //! -----------Import routes-----------
-import userRouter from './routes/user.routes.js';
+import userRouter from './routes/user.routes.js';  // default export (no curly braces, can rename on import)
 
 app.use("/api/v1/users", userRouter); 
 

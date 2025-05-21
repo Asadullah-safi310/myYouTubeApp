@@ -22,7 +22,7 @@ const verifyJWT = asyncHandler(async (req, _, next) => {
 
     req.user = user;  //You're manually adding a new custom property (user) to the existing req (request) object.
 
-    next();  //passes the updated req to the next function
+    next();  //passes the updated req to the next function, in this case the function is: logoutUser
   } catch (error) {
     throw new ApiError(401, error?.message || "Invalid Access Token");
   }

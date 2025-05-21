@@ -7,7 +7,7 @@ import app from "./app.js";
 dotenv.config({
     path: "./.env"
 });
-
+ 
 const port = process.env.PORT || 8000;
 connectDB().then(()=>{
     app.listen(port, ()=>{
@@ -35,3 +35,8 @@ For example, if the port is already in use or there’s an unexpected crash in E
 
 //?Important Notes:
 //? when you import a module in JavaScript (like import app from "./app.js";), the entire file (app.js) is executed immediately, just like if you had written its code directly inside index.js.
+
+
+//! what is express and mangoose?
+//express: Handles routing and server-side logic
+// mongoose: Connects and interacts with the MongoDB database using models.

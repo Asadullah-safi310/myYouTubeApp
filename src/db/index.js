@@ -38,4 +38,11 @@ if you want to reject the promise throw error; instead of process.exit(1) in .ca
 
 // If you want to stop the execution of the program, use process.exit(1); in the catch block of connectDB() function.
 
+
+/*
+!Behavior of async functions: What happens
+No throw error in catch:	Function resolves, even on failure of the try block
+throw error in catch:	Function rejects, .catch() in the index.js gets called
+*/
+
 //? if you throw error the promise will be rejected and the .catch() block in index.js file will execute and show this error: console.log("mongoDB connection failed!!", err);

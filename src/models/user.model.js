@@ -51,12 +51,13 @@ const userSchema = new Schema(
   }
 );
 
+//Before saving a user to the database, run this function.
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next(); // if password is not modified, skip hashing
   this.password = await bcrypt.hash(this.password, 10);
   next();
 });
-
+ 
 userSchema.methods.isPasswordCorrect = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
