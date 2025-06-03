@@ -1,8 +1,8 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
-import { ApiError } from "../utils/apiError.js";
+import { ApiError } from "../utils/ApiError.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { User } from "../models/user.model.js";
-import { ApiResponse } from "../utils/Apiresponse.js";
+import { ApiResponse } from "../utils/ApiResponse.js";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose"; // Importing mongoose to use its ObjectId type
 
@@ -10,7 +10,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const { username, email, password, fullName } = req.body;
 
   // if any of the fields are empty, throw an error with status code 400 and message "All fields are required"
-  if ([username, email, password].some((field) => field?.trim() === "")) {
+  if ([username, email, password, fullName].some((field) => field?.trim() === "")) {
     throw new ApiError(400, "All fields are required");
   }
 
@@ -40,7 +40,7 @@ const registerUser = asyncHandler(async (req, res) => {
     coverImageLocalPath = req.files.coverImage[0].path; // get the cover image path from the request files
   }
 
-  // upload the avatar and cover image to cloudinary
+  // upload the avatar and cover image to cloudinary 
   const avatar = await uploadOnCloudinary(avatarLocalPath); // upload the avatar to cloudinary
   const coverImage = await uploadOnCloudinary(coverImageLocalPath); // upload the cover image to cloudinary
 
@@ -109,9 +109,10 @@ const loginUser = asyncHandler(async (req, res) => {
     $or: [{ username }, { email }],
   });
 
-  console.log("user after finding user by findOne() from DB", user);
+  // console.log("user after finding user by findOne() from DB", user);
   if (!user) {
-    throw new ApiError(400, "User does not exist");
+    throw new ApiError(400, "this User does not exist.");
+    // res.status(400).json(new ApiResponse(400, "User does not exist"));
   }
 
   const isPasswordValid = await user.isPasswordCorrect(password);
